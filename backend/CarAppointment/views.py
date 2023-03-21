@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.shortcuts import render
 from . models import megrendelo
@@ -21,5 +22,8 @@ def services(request):
 
 
 
+=======
+from django.shortcuts import render
+>>>>>>> 5657c204ca62905745cda5bd8cf27328c0ba689e
 
 # Create your views here.

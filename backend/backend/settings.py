@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'CarAppointment.apps.CarappointmentConfig'
+=======
+    'CarAppointment'
+>>>>>>> 5657c204ca62905745cda5bd8cf27328c0ba689e
 ]
 
 MIDDLEWARE = [
