@@ -6,6 +6,7 @@ import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
 // Assets
 import GarageIcon from "../../assets/svg/Garage"
+import BurgerIcon from "../../assets/svg/BurgerIcon"
 
 export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
@@ -31,6 +32,9 @@ export default function TopNavbar() {
               carHouse
             </h1>
           </Link>
+          <BurderWrapper className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>
+            <BurgerIcon />
+          </BurderWrapper>
           <UlWrapper className="flexNullCenter">
             <li className="semiBold font15 pointer">
               <Link activeClass="active" style={{ padding: "10px 15px" }} to="home" spy={true} smooth={true} offset={-80}>
@@ -43,7 +47,7 @@ export default function TopNavbar() {
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="projects" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{ padding: "10px 15px" }} to="pricing" spy={true} smooth={true} offset={-80}>
                 Pricing
               </Link>
             </li>
@@ -63,9 +67,11 @@ export default function TopNavbar() {
           </UlWrapper>
           <UlWrapperRight className="flexNullCenter">
             <li className="semiBold font15 pointer flexCenter">
-              <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
-                Appointment
-              </a>
+              <Link to="contact" spy={true} smooth={true} offset={-80}>
+                <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
+                  Appointment
+                </a>
+              </Link>
             </li>
           </UlWrapperRight>
         </NavInner>

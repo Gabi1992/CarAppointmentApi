@@ -5,84 +5,45 @@ import ServiceBox from "../Elements/ServiceBox";
 import FullButton from "../Buttons/FullButton";
 import BrandSlider from "../Elements/BrandSlider";
 // Assets
-import ServiceImg1 from "../../assets/img/services/1.png";
-import ServiceImg2 from "../../assets/img/services/2.png";
-import ServiceImg3 from "../../assets/img/services/3.png";
-import ServiceImg4 from "../../assets/img/services/4.png";
-import ServiceImg5 from "../../assets/img/services/5.png";
-import ServiceImg6 from "../../assets/img/services/6.png";
+import ServiceImg1 from "../../assets/img/services/axle.png";
+import ServiceImg2 from "../../assets/img/services/breaks.png";
+import ServiceImg3 from "../../assets/img/services/tires.png";
 
 export default function Services() {
   return (
     <Wrapper id="services">
-      <div className="lightBg" style={{ padding: "50px 0" }}>
-        <div className="container">
-          <BrandSlider />
-        </div>
-      </div>
       <div className="whiteBg">
         <div className="container">
           <HeaderInfo>
             <h1 className="font40 extraBold">Services</h1>
             <p className="font13">
-              Blablabla
+            Our professionals know how to handle a wide range of car services. Whether you drive a passenger car or medium sized truck or SUV, our mechanics strive to ensure that your vehicle will be performing at its best.
             </p>
           </HeaderInfo>
           <div className="row textCenter">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ServiceBox
-                img={ServiceImg1}
-                title="Service 1"
-                text="Description of service"
-                action={() => alert("clicked")}
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <ServiceBox
+                id="breaks"
                 img={ServiceImg2}
-                title="Service 2"
-                text="Description of service."
+                title="Breaks"
                 action={() => alert("clicked")}
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ServiceBox
+                id="axle"
+                img={ServiceImg1}
+                title="Axle"
+                action={() => alert("clicked")}
+              />
+            </div>
+            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <ServiceBox
+                id="tires"
                 img={ServiceImg3}
-                title="Service 3"
-                text="Description of service"
+                title="TIRE AND WHEEL SERVICES"
                 action={() => alert("clicked")}
               />
-            </div>
-          </div>
-          <div className="row textCenter">
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <ServiceBox
-                img={ServiceImg4}
-                title="Service 4"
-                text="Description of service"
-                action={() => alert("clicked")}
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <ServiceBox
-                img={ServiceImg5}
-                title="Service 5"
-                text="Description of service"
-                action={() => alert("clicked")}
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <ServiceBox
-                img={ServiceImg6}
-                title="Service 6"
-                text="Description of service"
-                action={() => alert("clicked")}
-              />
-            </div>
-          </div>
-          <div className="row flexCenter">
-            <div style={{ margin: "50px 0", width: "200px" }}>
-              <FullButton title="Load More" action={() => alert("clicked")} />
             </div>
           </div>
         </div>

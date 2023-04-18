@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 // Components
 import FullButton from "../Buttons/FullButton";
 // Assets
@@ -15,7 +16,9 @@ export default function Header() {
              Since 1992 we’ve provided full-service auto repair and car care in Debrecen at Nagydirko street 11.
           </HeaderP>
           <BtnWrapper>
-            <FullButton title="Appointment" />
+            <Link to="contact" spy={true} smooth={true} offset={-80}>
+              <FullButton title="Appointment" />
+            </Link>
           </BtnWrapper>
         </div>
       </LeftSide>
