@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Calendar from 'react-calendar';
 
 export default function Contact() {
   return (
@@ -24,6 +25,11 @@ export default function Contact() {
               <SumbitWrapper className="flex">
                 <ButtonInput type="submit" value="Book appointment" className="pointer animate radius8" style={{ maxWidth: "220px" }} />
               </SumbitWrapper>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
+              <div style={{ width: "50%" }} className="flexNullCenter flexColumn">
+              <Calendar />
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +94,6 @@ const SumbitWrapper = styled.div`
     margin-bottom: 50px;
   }
 `;
-
 
 
 
