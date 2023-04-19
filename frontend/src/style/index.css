@@ -142,6 +142,16 @@
     justify-content: space-between;
   }
 
+  .flexLeft {
+    display: flex;
+    justify-content: left;
+  }
+
+  .flexRight {
+    display: flex;
+    justify-content: right;
+  }
+
   /* FONT SIZES */
   .font11 {
     font-size: 0.688rem;
@@ -239,7 +249,7 @@
     color: #49CB86;
   }
   .greyColor {
-    color: #707070;
+    color: #585858;
   }
   .whiteColor {
     color: #fff;
@@ -264,7 +274,7 @@
     background-color: #49CB86;
   }
   .greyBg {
-    background-color: #707070;
+    background-color: #3b3b3b;
   }
   .whiteBg {
     background-color: #fff;

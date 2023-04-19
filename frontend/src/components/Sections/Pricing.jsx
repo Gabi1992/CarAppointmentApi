@@ -17,15 +17,15 @@ export default function Pricing() {
             <TableBox>
               <PricingTable
                 icon="break"
-                price="from $49.95"
+                priceFrom="from $49.95"
                 title="BREAK"
                 text="Description"
                 offers={[
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
                 ]}
                 action={() => alert("clicked")}
               />
@@ -33,15 +33,15 @@ export default function Pricing() {
             <TableBox>
               <PricingTable
                 icon="axle"
-                price="$149.95 Each"
+                priceFrom="$149.95 Each"
                 title="AXEL"
                 text="Description"
                 offers={[
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
                 ]}
                 action={() => alert("clicked")}
               />
@@ -49,15 +49,15 @@ export default function Pricing() {
             <TableBox>
               <PricingTable
                 icon="wheel"
-                price="from $29.95"
+                priceFrom="from $29.95"
                 title="TIRE AND WHEEL"
                 text="Description"
                 offers={[
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
-                  { name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
+                  { price: "$45", name: "Something", cheked: true },
                 ]}
                 action={() => alert("clicked")}
               />

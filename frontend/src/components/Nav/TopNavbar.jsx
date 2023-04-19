@@ -24,11 +24,11 @@ export default function TopNavbar() {
     <>
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
-      <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
+      <Wrapper className="flexCenter animate lightBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
             <GarageIcon />
-            <h1 style={{ marginLeft: "15px" }} className="font20 extraBold">
+            <h1 style={{ marginLeft: "10px", marginTop: "13px" }} className="font20 extraBold">
               carHouse
             </h1>
           </Link>

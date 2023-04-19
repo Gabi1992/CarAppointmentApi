@@ -12,7 +12,7 @@ import ServiceImg3 from "../../assets/img/services/tires.png";
 export default function Services() {
   return (
     <Wrapper id="services">
-      <div className="whiteBg">
+      <div className="lightBg">
         <div className="container">
           <HeaderInfo>
             <h1 className="font40 extraBold">Services</h1>
@@ -26,7 +26,6 @@ export default function Services() {
                 id="breaks"
                 img={ServiceImg2}
                 title="Breaks"
-                action={() => alert("clicked")}
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -34,7 +33,6 @@ export default function Services() {
                 id="axle"
                 img={ServiceImg1}
                 title="Axle"
-                action={() => alert("clicked")}
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -42,7 +40,6 @@ export default function Services() {
                 id="tires"
                 img={ServiceImg3}
                 title="TIRE AND WHEEL SERVICES"
-                action={() => alert("clicked")}
               />
             </div>
           </div>

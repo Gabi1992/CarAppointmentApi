@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 // Components
 import FullButton from "../Buttons/FullButton";
 // Assets
@@ -8,7 +9,7 @@ import BreakIcon from "../../assets/svg/Services/BreakIcon";
 import WheelIcon from "../../assets/svg/Services/WheelIcon";
 import CheckMark from "../../assets/svg/Checkmark";
 
-export default function PricingTable({ icon, price, title, text,  offers, action }) {
+export default function PricingTable({ icon, priceFrom, title, text,  offers, action }) {
   let getIcon;
 
   switch (icon) {
@@ -30,10 +31,10 @@ export default function PricingTable({ icon, price, title, text,  offers, action
     <Wrapper className="whiteBg radius8 shadow">
       <div className="flexSpaceCenter">
         {getIcon}
-        <p className="font30 extraBold">{price}</p>
+        <p style={{ fontVariant: "all-small-caps" }} className="font30 extraBold">{priceFrom}</p>
       </div>
       <div style={{ margin: "30px 0" }}>
-        <h4 className="font30 extraBold">{title}</h4>
+        <h4 style={{ fontVariant: "all-small-caps" }} className="font30 extraBold">{title}</h4>
         <p className="font13">{text}</p>
       </div>
       <div>
@@ -48,8 +49,15 @@ export default function PricingTable({ icon, price, title, text,  offers, action
                   ) : (
                     <div style={{ minWidth: "20px" }}></div>
                   )}
+                    </div>
+                <div style={{ marginLeft:"20px" }}>
+                  <Link to="contact" smooth={true}>
+                  <p className="font25">{item.name}</p>
+                  </Link>
                 </div>
-                <p className="font20 extraBold">{item.name}</p>
+                <div style={{ marginLeft: "60px" }}>
+                  <p style={{}} className="font25">{item.price}</p>
+                </div>
               </div>
             ))
           : null}

@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgComponent(props) {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" enable-background="new 0 0 64 64" viewBox="0 0 64 64">
+		<svg xmlns="http://www.w3.org/2000/svg" width={40} height={40} enable-background="new 0 0 64 64" viewBox="0 0 64 64">
 			<path fill="#010101" d="M63.981,25.243c-0.09-0.838-0.535-1.584-1.256-2.104L32.563,1.562c-0.338-0.24-0.791-0.24-1.127,0
 			L19.817,9.874V3.986c0-0.536-0.436-0.97-0.971-0.97h-7.594c-0.535,0-0.969,0.434-0.969,0.97v12.707l-9.014,6.448
 			c-0.719,0.518-1.164,1.265-1.254,2.102c-0.088,0.817,0.176,1.617,0.764,2.273l0.203,0.212c1.115,1.257,3.156,1.472,4.555,0.476
