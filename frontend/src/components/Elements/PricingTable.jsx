@@ -9,7 +9,7 @@ import BreakIcon from "../../assets/svg/Services/BreakIcon";
 import WheelIcon from "../../assets/svg/Services/WheelIcon";
 import CheckMark from "../../assets/svg/Checkmark";
 
-export default function PricingTable({ icon, priceFrom, title, text,  offers, action }) {
+export default function PricingTable({ icon, priceFrom, title, text, offers, action }) {
   let getIcon;
 
   switch (icon) {
