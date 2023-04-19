@@ -40,7 +40,9 @@ export default function Contact() {
                 <label className="font13">Surname:</label>
                 <input type="text" id="sname" name="sname" className="font20 extraBold" />
                 <label className="font13">Email:</label>
-                <input type="email" id="email" name="email" className="font20 extraBold" />
+                <input type="phone" id="phone" name="phone" className="font20 extraBold" />
+                <label className="font13">Phone number:</label>
+                <input type="phone" id="phone" name="phone" className="font20 extraBold" />
                 <label className="font13">Vehicle year:</label>
                 <Slider
                   value={typeof value === 'number' ? value : 0}
