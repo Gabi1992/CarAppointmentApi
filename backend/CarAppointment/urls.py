@@ -1,12 +1,13 @@
-from django.contrib import admin
 from django.urls import path, include
 from . import views
 
 
 urlpatterns = [
-    path('home/', views.index, name="Teszt!"),
-    path('ugyfel/', views.ugyfel, name="Ügyfél"),
-    path('contact/', views.contact, name="Contact"),
-    path('pricing/', views.pricing, name="Pricing"),
-    path('services/', views.services, name="Services"),
+    path('',views.endpoints),
+    path('szolgaltatasok/',views.MindenSzolgaltatas),
+    path('szolgaltatas/<int:pk>',views.SzolgaltatasByID),
+    path('autok/',views.MindenAuto),
+    path('auto/<int:pk>',views.AutoByID),
+    path('megrendelok/',views.MindenMegrendelo),
+    path('megrendelo/<int:pk>',views.MegrendeloByID),
 ]

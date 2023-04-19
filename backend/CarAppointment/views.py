@@ -1,29 +1,64 @@
-<<<<<<< HEAD
-from django.http import HttpResponse
-from django.shortcuts import render
-from . models import megrendelo
-from calendar import HTMLCalendar
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Szolgaltatas,Auto,Megrendelo
+from .serializer import AutoSerializer,MegreneloSerializer,SzolgaltatasSerializer
 
 
-def index(request):
-    return HttpResponse("Home!")
-
-def ugyfel(request):
-    return HttpResponse("Ügyfél!")
-
-def contact(request):
-    return HttpResponse("Contact!")
-
-def pricing(request):
-    return HttpResponse("Pricing!")
-
-def services(request):
-    return HttpResponse("Services!")
+@api_view(['GET'])
+def endpoints(request):
+    points = {'Message': 'Teszt'}
+    return Response(points)
 
 
+@api_view(['GET'])
+def MindenSzolgaltatas(request):
+    szolgaltatasok = Szolgaltatas.objects.all()
+    serialized = SzolgaltatasSerializer(szolgaltatasok, many = True)
+    
+    return Response(serialized.data)
 
-=======
-from django.shortcuts import render
->>>>>>> 5657c204ca62905745cda5bd8cf27328c0ba689e
+@api_view(['GET'])
+def SzolgaltatasByID(request,pk):
+    try:
+        szolgaltatas = Szolgaltatas.objects.get(id=pk)
+        serialized = SzolgaltatasSerializer(szolgaltatas, many = False) 
+        return Response(serialized.data)
+    except Exception as e:
+        return Response({'Message': str(e)})
+  
+      
+@api_view(['GET'])
+def MindenAuto(request):
+    autok = Auto.objects.all()
+    serialized = AutoSerializer(autok, many = True)
+    
+    return Response(serialized.data)
+
+@api_view(['GET'])
+def AutoByID(request,pk):
+    try:
+        auto = Auto.objects.get(id=pk)
+        serialized = AutoSerializer(auto, many = False) 
+        return Response(serialized.data)
+    except Exception as e:
+        return Response({'Message': str(e)})
+    
+
+@api_view(['GET'])
+def MindenMegrendelo(request):
+    megrendelok = Megrendelo.objects.all()
+    serialized = MegreneloSerializer(megrendelok, many = True)
+    
+    return Response(serialized.data)
+
+@api_view(['GET'])
+def MegrendeloByID(request,pk):
+    try:
+        megrendelo = Auto.objects.get(id=pk)
+        serialized = MegreneloSerializer(megrendelo, many = False) 
+        return Response(serialized.data)
+    except Exception as e:
+        return Response({'Message': str(e)})
+
 
 # Create your views here.
