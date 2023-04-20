@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TimeDatePicker from "../Elements/TimeDatePicker"
 import Slider from '@mui/material/Slider';
+import PricingTable from "../Elements/PricingTable";
+
+import axios from "axios"
+
+import { API_URL } from "../../constant/apiConstant";
+import { FilledInput, FormControl, Input, InputLabel, TextField } from "@mui/material";
+
+
 
 export default function Contact() {
 
@@ -23,6 +31,49 @@ export default function Contact() {
     setVmake(event.target.value);
   };
 
+  class NewClient extends React.Component {
+    state = {
+      pk: 0,
+      fname: "",
+      sname: "",
+      email: "",
+      phone: "",
+      vehicleYear: "",
+      vehicleMake: "",
+    }
+
+    componentDidMount() {
+      if (this.props.client) {
+        const { pk, fname, sname, email, phone, vehicleYear, vehicleMake } = this.props.student;
+        this.setState({ pk, fname, sname, email, phone, vehicleYear, vehicleMake });
+      }
+    }
+  
+    onChange = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    };
+  
+    createClient = e => {
+      e.preventDefault();
+      axios.post(API_URL, this.state).then(() => {
+        this.props.resetState();
+        this.props.toggle();
+      });
+    };
+  
+    editClient = e => {
+      e.preventDefault();
+      axios.put(API_URL + this.state.pk, this.state).then(() => {
+        this.props.resetState();
+        this.props.toggle();
+      });
+    };
+  
+    defaultIfEmpty = value => {
+      return value === "" ? "" : value;
+    };
+  }
+
   return (
     <Wrapper id="contact">
       <div className="lightBg">
@@ -34,58 +85,57 @@ export default function Contact() {
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <Form>
-                <label className="font13">First name:</label>
-                <input type="text" id="fname" name="fname" className="font20 extraBold" />
-                <label className="font13">Surname:</label>
-                <input type="text" id="sname" name="sname" className="font20 extraBold" />
-                <label className="font13">Email:</label>
-                <input type="phone" id="phone" name="phone" className="font20 extraBold" />
-                <label className="font13">Phone number:</label>
-                <input type="phone" id="phone" name="phone" className="font20 extraBold" />
-                <label className="font13">Vehicle year:</label>
+              <FormControl fullWidth>
+                <TextField id="fname" label="First name" variant="standard" />
+                <TextField id="sname" label="Sure name" variant="standard" />
+                <TextField id="email" type={"email"}  label="Email" variant="standard" />
+                <TextField id="phone" type={"phone"} label="Phone" variant="standard" />
+                <TextField id="service" label="Service" variant="standard" />
+                <Input 
+                  id="vehicleYear" 
+                  value={value}
+                  label="Vehicle year"
+                  disabled
+                  size="small"
+                  variant="filled"
+                  inputProps={{
+                    step: 1,
+                    min: 1950,
+                    max: 2023,
+                    }
+                  }
+                />
                 <Slider
                   value={typeof value === 'number' ? value : 0}
                   onChange={handleSliderChange}       
                   size="small"
                   defaultValue={2023}
-                  aria-label="Car year"
                   valueLabelDisplay="auto"
                   marks
                   min={1950}
                   max={2023}
                   >
-                </Slider>
-                <input value={value}
-                  disabled
-                  size="small"
-                  inputProps={{
-                    step: 1,
-                    min: 1950,
-                    max: 2023,
-                    type: 'number',
-                    'aria-labelledby': 'input-slider',
-                  }}
-                  />
-                <label className="font13">Vehicle make:</label>
+              </Slider>
+              </FormControl>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Vehicle make</InputLabel>
                 <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
+                  id="vehicleMake"
                   label="Vehicle make"
                   value={vmake}
                   onChange={handleChange}
+                  size="10px"
                   >
-                  <MenuItem>BMW</MenuItem>
-                  <MenuItem>Mercedes</MenuItem>
-                  <MenuItem>Audi</MenuItem>
-              </Select>
-              </Form>
+                </Select>
+              </FormControl>
               <SumbitWrapper className="flex">
                 <ButtonInput type="submit" value="Book appointment" className="pointer animate radius8" style={{ maxWidth: "220px" }} />
               </SumbitWrapper>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
+              <CalendarBox>
                 <TimeDatePicker />
+              </CalendarBox>
             </div>
           </div>
         </div>
@@ -93,6 +143,7 @@ export default function Contact() {
     </Wrapper>
   );
 }
+
 
 const Wrapper = styled.section`
   width: 100%;
@@ -139,10 +190,8 @@ const ButtonInput = styled.input`
     margin: 0 auto;
   }
 `;
-const ContactImgBox = styled.div`
-  max-width: 180px; 
-  align-self: flex-end; 
-  margin: 10px 30px 10px 0;
+const CalendarBox = styled.div`
+    align-self: right;
 `;
 const SumbitWrapper = styled.div`
   @media (max-width: 991px) {
