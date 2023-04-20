@@ -9,7 +9,9 @@ import BreakIcon from "../../assets/svg/Services/BreakIcon";
 import WheelIcon from "../../assets/svg/Services/WheelIcon";
 import CheckMark from "../../assets/svg/Checkmark";
 
-export default function PricingTable({ icon, priceFrom, title, text, offers, action }) {
+import { API_URL } from '../../constant/apiConstant';
+
+export default function PricingTable({ icon, priceFrom, title, text, action }) {
   let getIcon;
 
   switch (icon) {
@@ -27,6 +29,17 @@ export default function PricingTable({ icon, priceFrom, title, text, offers, act
       break;
   }
 
+  const [services, setServices] = useState([ ])
+
+  useEffect(() => {
+    fetch(API_URL+"/szolgaltatasok")
+    .then(res => res.json())
+    .then(data => {
+      setServices(data)
+      console.log(data)
+    })
+  }, [ ])
+
   return (
     <Wrapper className="whiteBg radius8 shadow">
       <div className="flexSpaceCenter">
@@ -38,27 +51,11 @@ export default function PricingTable({ icon, priceFrom, title, text, offers, act
         <p className="font13">{text}</p>
       </div>
       <div>
-        {offers
-          ? offers.map((item, index) => (
-              <div className="flexNullCenter" style={{ margin: "15px 0" }} key={index}>
-                <div style={{ position: "relative", top: "-1px", marginRight: "15px" }}>
-                  {item.cheked ? (
-                    <div style={{ minWidth: "20px" }}>
-                      <CheckMark />
-                    </div>
-                  ) : (
-                    <div style={{ minWidth: "20px" }}></div>
-                  )}
-                    </div>
-                <div style={{ marginLeft:"20px" }}>
-                  <Link to="contact" smooth={true}>
-                  <p className="font25">{item.name}</p>
-                  </Link>
-                </div>
-                <div style={{ marginLeft: "60px" }}>
-                  <p style={{}} className="font25">{item.price}</p>
-                </div>
-              </div>
+        {services
+          ? services.map((item, index) => (
+            <div>
+              {item.neve}
+            </div>
             ))
           : null}
       </div>

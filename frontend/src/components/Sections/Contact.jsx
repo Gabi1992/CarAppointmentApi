@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import TimeDatePicker from "../Elements/TimeDatePicker"
 import Slider from '@mui/material/Slider';
-import PricingTable from "../Elements/PricingTable";
-
-import axios from "axios"
 
 import { API_URL } from "../../constant/apiConstant";
 import { FilledInput, FormControl, Input, InputLabel, TextField } from "@mui/material";
-
-
 
 export default function Contact() {
 
@@ -31,48 +25,7 @@ export default function Contact() {
     setVmake(event.target.value);
   };
 
-  class NewClient extends React.Component {
-    state = {
-      pk: 0,
-      fname: "",
-      sname: "",
-      email: "",
-      phone: "",
-      vehicleYear: "",
-      vehicleMake: "",
-    }
 
-    componentDidMount() {
-      if (this.props.client) {
-        const { pk, fname, sname, email, phone, vehicleYear, vehicleMake } = this.props.student;
-        this.setState({ pk, fname, sname, email, phone, vehicleYear, vehicleMake });
-      }
-    }
-  
-    onChange = e => {
-      this.setState({ [e.target.name]: e.target.value });
-    };
-  
-    createClient = e => {
-      e.preventDefault();
-      axios.post(API_URL, this.state).then(() => {
-        this.props.resetState();
-        this.props.toggle();
-      });
-    };
-  
-    editClient = e => {
-      e.preventDefault();
-      axios.put(API_URL + this.state.pk, this.state).then(() => {
-        this.props.resetState();
-        this.props.toggle();
-      });
-    };
-  
-    defaultIfEmpty = value => {
-      return value === "" ? "" : value;
-    };
-  }
 
   return (
     <Wrapper id="contact">
@@ -86,8 +39,7 @@ export default function Contact() {
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <FormControl fullWidth>
-                <TextField id="fname" label="First name" variant="standard" />
-                <TextField id="sname" label="Sure name" variant="standard" />
+                <TextField id="name" label="Name" variant="standard" />
                 <TextField id="email" type={"email"}  label="Email" variant="standard" />
                 <TextField id="phone" type={"phone"} label="Phone" variant="standard" />
                 <TextField id="service" label="Service" variant="standard" />
@@ -110,7 +62,6 @@ export default function Contact() {
                   onChange={handleSliderChange}       
                   size="small"
                   defaultValue={2023}
-                  valueLabelDisplay="auto"
                   marks
                   min={1950}
                   max={2023}
